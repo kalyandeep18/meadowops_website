@@ -77,14 +77,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "MeadowOps — AI Systems That Actually Do The Work" },
+      {
+        name: "description",
+        content:
+          "MeadowOps helps SMBs and growth-stage startups replace manual operations with AI systems that are audited, built, and activated for real results.",
+      },
+      { name: "author", content: "MeadowOps" },
+      { property: "og:site_name", content: "MeadowOps" },
+      { property: "og:title", content: "MeadowOps — AI Systems That Actually Do The Work" },
+      { property: "og:description", content: "Audited, built, and activated AI systems for real business results." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@MeadowOps" },
     ],
     links: [
       {
