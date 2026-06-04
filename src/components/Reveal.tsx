@@ -18,7 +18,7 @@ export function Reveal({ children, className, delay = 0, y = 24, once = true }: 
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
@@ -73,7 +73,7 @@ export function StaggerItem({
       className={className}
       variants={{
         hidden: { opacity: 0, y: reduce ? 0 : y },
-        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+        show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
       }}
     >
       {children}

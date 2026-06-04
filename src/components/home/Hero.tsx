@@ -6,12 +6,13 @@ import heroImg from "@/assets/hero-systems.jpg";
 export function Hero() {
   const reduce = useReducedMotion();
 
+  const ease = [0.22, 1, 0.36, 1] as const;
   const word = {
     hidden: { opacity: 0, y: reduce ? 0 : 28 },
     show: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.15 + i * 0.06, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      transition: { delay: 0.15 + i * 0.06, duration: 0.7, ease },
     }),
   };
 
