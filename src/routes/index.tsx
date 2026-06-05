@@ -20,6 +20,7 @@ import { Hero } from "@/components/home/Hero";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { CtaButton } from "@/components/CtaButton";
 import { SITE } from "@/lib/site";
+import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 
 
 export const Route = createFileRoute("/")({
