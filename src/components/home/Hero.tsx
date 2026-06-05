@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { CtaButton } from "@/components/CtaButton";
 import { SITE } from "@/lib/site";
-import heroImg from "@/assets/hero-systems.jpg";
+
 
 export function Hero() {
   const reduce = useReducedMotion();
