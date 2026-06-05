@@ -184,7 +184,7 @@ function TransformationSection() {
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-14 lg:grid-cols-2">
+        <div className="mx-auto max-w-2xl">
           <div>
             <Reveal>
               <SectionLabel>After MeadowOps</SectionLabel>
