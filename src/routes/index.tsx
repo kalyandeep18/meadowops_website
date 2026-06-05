@@ -217,18 +217,6 @@ function TransformationSection() {
             </StaggerGroup>
           </div>
 
-          <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_90px_-50px_rgba(0,0,0,0.4)]">
-              <img
-                src={transformationImg}
-                alt="Tangled manual chaos untangling into one clean ordered line"
-                className="h-auto w-full"
-                width={1280}
-                height={768}
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>
