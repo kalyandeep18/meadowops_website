@@ -19,7 +19,7 @@ import { Hero } from "@/components/home/Hero";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { CtaButton } from "@/components/CtaButton";
 import { SITE } from "@/lib/site";
-import transformationImg from "@/assets/transformation.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -184,7 +184,7 @@ function TransformationSection() {
   return (
     <section className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid items-center gap-14 lg:grid-cols-2">
+        <div className="mx-auto max-w-2xl">
           <div>
             <Reveal>
               <SectionLabel>After MeadowOps</SectionLabel>
@@ -217,18 +217,6 @@ function TransformationSection() {
             </StaggerGroup>
           </div>
 
-          <Reveal delay={0.1}>
-            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_90px_-50px_rgba(0,0,0,0.4)]">
-              <img
-                src={transformationImg}
-                alt="Tangled manual chaos untangling into one clean ordered line"
-                className="h-auto w-full"
-                width={1280}
-                height={768}
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
         </div>
       </div>
     </section>
