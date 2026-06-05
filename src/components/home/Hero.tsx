@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { CtaButton } from "@/components/CtaButton";
 import { SITE } from "@/lib/site";
-import heroImg from "@/assets/hero-systems.jpg";
+
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -84,22 +84,6 @@ export function Hero() {
           </CtaButton>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97, y: 30 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 1.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto mt-16 max-w-4xl"
-        >
-          <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-[0_40px_120px_-50px_rgba(0,0,0,0.45)]">
-            <img
-              src={heroImg}
-              alt="Tangled manual operations converging into clean AI-powered systems"
-              className="h-auto w-full"
-              width={1280}
-              height={1024}
-            />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
