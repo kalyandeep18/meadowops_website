@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   ArrowRight,
   Search,
@@ -19,6 +20,7 @@ import { Hero } from "@/components/home/Hero";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { CtaButton } from "@/components/CtaButton";
 import { SITE } from "@/lib/site";
+import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 
 
 export const Route = createFileRoute("/")({
@@ -181,10 +183,34 @@ function TransformationSection() {
     { from: "uncertainty", to: "clear direction" },
   ];
 
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
+  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
+  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
+  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
+  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
+
   return (
-    <section className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-2xl">
+    <section ref={ref} className="relative h-[200vh]">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        <GoogleGeminiEffect
+          pathLengths={[
+            pathLengthFirst,
+            pathLengthSecond,
+            pathLengthThird,
+            pathLengthFourth,
+            pathLengthFifth,
+          ]}
+          className="opacity-60"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background via-background/40 to-background" />
+
+        <div className="relative mx-auto w-full max-w-2xl px-6">
           <div>
             <Reveal>
               <SectionLabel>After MeadowOps</SectionLabel>
@@ -203,7 +229,7 @@ function TransformationSection() {
               {shifts.map((s) => (
                 <StaggerItem
                   key={s.from}
-                  className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card p-4"
+                  className="flex flex-wrap items-center gap-3 rounded-2xl border border-border bg-card/80 p-4 backdrop-blur-sm"
                 >
                   <span className="rounded-lg bg-secondary px-3 py-1.5 text-sm font-medium text-muted-foreground line-through decoration-muted-foreground/40">
                     {s.from}
@@ -216,12 +242,12 @@ function TransformationSection() {
               ))}
             </StaggerGroup>
           </div>
-
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------- Section 5: What MeadowOps Does ---------- */
 function WhatWeDoSection() {
