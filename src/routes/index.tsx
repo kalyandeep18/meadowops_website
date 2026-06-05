@@ -19,7 +19,7 @@ import { Hero } from "@/components/home/Hero";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
 import { CtaButton } from "@/components/CtaButton";
 import { SITE } from "@/lib/site";
-import transformationImg from "@/assets/transformation.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
