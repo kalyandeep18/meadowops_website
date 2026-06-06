@@ -1,65 +1,38 @@
-# MeadowOps Website — Homepage Build Plan
+# Audit Page Build Plan
 
-A fresh, conversion-focused, story-driven site that positions the client as the hero and MeadowOps as the mentor. Built around your brand colors, logo, and the StoryBrand-style copy you provided. We start with the home page (header, footer, all 8 sections), and scaffold the other pages as routes for later.
+Replace the placeholder `PageHero` in `src/routes/audit.tsx` with a full, brand-consistent page built from the supplied copy. It will match the home page's design language: Space Grotesk display font, DM Sans body, Star White background, black inverted blocks, vivid orange (`accent`) highlights, rounded-3xl cards, and the existing `Reveal`/`StaggerGroup`/`StaggerItem` scroll animations.
 
-## Design System (the foundation)
+## What gets built
 
-**Colors (brand tokens in `src/styles.css`, oklch):**
-- Star White `#EFEFE8` — main background / canvas
-- Black `#000000` — primary text
-- Grey `#737373` — subtext / muted
-- Vivid Orange `#FF6320` — buttons, CTAs, highlighted numbers/keywords
-
-**Typography:** Professional sans-serif pairing — a bold geometric grotesk for headlines (large, confident, tight tracking) + a clean neutral sans for body. Loaded via the project font setup. No serif, no generic AI defaults.
-
-**Motion (level 4 — rich but tasteful):** scroll-triggered reveals, staggered text/line animations, an animated hero graphic, sticky/scroll-progress moments in the story sections, magnetic/hover CTA states, subtle parallax. Built with Framer Motion. Respects `prefers-reduced-motion`.
-
-**Visual language:** Mixed imagery — generated abstract "AI systems" graphics (flowing nodes, signal lines, warm-orange gradients on star-white) in the hero and key moments; minimal/typographic treatment elsewhere. Distinctive cards with soft borders, generous negative space, off-grid asymmetry so it doesn't look templated.
-
-**Logo:** Your `without_background.png` "M" mark registered as a project asset, used in header and footer.
-
-## Site Structure (routes)
+Eight sections, each as a small component inside `audit.tsx`, reusing patterns already proven on the home page (no new dependencies):
 
 ```text
-/            Home        (built now — full storytelling page)
-/audit       Audit       (lead magnet — scaffolded, built next)
-/products    Products & Services (scaffolded)
-/about       About Us    (scaffolded)
-/community   Community    (scaffolded)
-/contact     Contact Us   (scaffolded)
+1. Hero        — headline, subheadline, two CTAs (Book My Audit / See What We Find)
+2. The Problem — "stuck because" list + the "fix it all at once" warning (inverted black block)
+3. What the Audit Does — the core question + 6-point "what we look at" grid
+4. What They Get — outcome list ("after the audit you will know…")
+5. Why This Matters — failure-reasons block (inverted), starting-with-tool-not-problem
+6. Who This Is For — 5-point audience checklist grid
+7. Why MeadowOps Audit — generic-consultant contrast + 4 outcomes
+8. CTA Section — "Stop guessing", Book Your Audit button + support line
 ```
 
-Each gets its own route file with unique SEO `head()` (title, description, og tags). Non-home pages start as clean placeholder shells with header/footer so navigation works; we build them out in following turns.
+## Design details
 
-## Homepage Sections (using your copy verbatim)
+- **Hero**: word-by-word animated headline (same technique as `Hero.tsx`), ambient accent glow, primary `CtaButton` ("Book My Audit") + ghost `CtaButton` ("See What We Find" → scrolls/links to the audit-details section). Keeps the same top padding rhythm as other heroes.
+- **Section labels**: reuse the `SectionLabel` pattern (orange uppercase tag with a short rule).
+- **Lists/grids**: use `StaggerGroup` + `StaggerItem` cards with lucide icons (e.g. `Hand`, `Repeat`, `Unplug`, `TrendingUp`, `AlertTriangle`, `Clock`, `Target`, `CheckCircle2`, `XCircle`, `Search`, `Sparkles`). Check-style lists for "what they get" and "who this is for".
+- **Inverted blocks**: Sections 2 (warning) and 5 use the black `bg-foreground text-background` treatment with a blurred accent glow, matching `BigBadSection`/`WhySection`.
+- **Final CTA**: reuse the `FinalCtaSection` card styling (rounded-[2rem] bordered card, accent glow) with "Book Your Audit" and the support line.
+- All colors via semantic tokens only (`accent`, `foreground`, `muted-foreground`, `card`, `border`) — no hardcoded colors.
+- Respects reduced-motion through the existing `Reveal` components.
 
-1. **Sticky Header** — logo, nav (Home, Audit, Products & Services, About, Community, Contact), "Book an Audit" CTA. Transparent → solid on scroll.
-2. **Hero** — headline "Stop wasting time on manual work…", subheadline, primary CTA **Book an Audit** + secondary **See What We Build**, animated abstract systems graphic.
-3. **The Story** — scroll-driven narrative ("Your business is growing…") with progressive reveal building tension toward "That is the point where MeadowOps steps in."
-4. **The Big Bad** — the real problem list (too much manual work, wasted hours, disconnected tools, wasted money, confusion) styled as an impactful pain block.
-5. **What Changes After MeadowOps** — the transformation, with the "manual chaos → smart systems" before/after pairs animated in.
-6. **What MeadowOps Does** — Audit / Build / Activate as three distinct cards + methodology note.
-7. **Who It Is For** — SMBs, funded startups, growth-stage startups.
-8. **Why MeadowOps** — differentiation block, "10x operations" emphasized in orange.
-9. **Final CTA** — "Ready to stop running your business the hard way?" + **Book Your Audit** button + sub-line "Start with clarity. Build with purpose. Scale with AI."
-10. **Footer** — logo, tagline, nav links, contact, social placeholders, copyright.
+## SEO / head
 
-Numbers and key conversion words highlighted in Vivid Orange throughout.
+Keep the existing `head()` meta in `audit.tsx` (title, description, og tags, canonical) — it already fits this page; minor copy tightening to match the new hero.
 
-## CTA behavior
-Per your choice, "Book an Audit" / "Book Your Audit" buttons are visually complete and link to the `/audit` route for now (placeholder destination). We wire up the real scheduler or backend form in a later step when you decide.
+## Files changed
 
-## Build order this turn
-1. Register logo asset + define color/type tokens and motion utilities in the design system.
-2. Build reusable Header + Footer.
-3. Generate hero + accent abstract graphics (brand colors).
-4. Build all homepage sections with the provided copy and motion.
-5. Scaffold the 5 other routes with header/footer + SEO so nav works.
-6. Verify build, check the preview visually, and refine for the "designed by a pro, not AI" feel.
+- `src/routes/audit.tsx` — replace placeholder with the full 8-section page.
 
-## Technical notes
-- TanStack Start file-based routes under `src/routes/`; per-route `head()` for SEO; semantic design tokens only (no hardcoded colors in components).
-- Framer Motion for animation; reduced-motion fallback.
-- No backend enabled yet (CTA decision deferred); Lovable Cloud added later only when we build the audit form.
-
-After you approve, I'll build the home page first, then we move page-by-page through Audit, Products & Services, About, Community, and Contact.
+No new files, no dependencies, no backend. Purely frontend/presentation work.
