@@ -15,7 +15,6 @@ import {
   HelpCircle,
   Coins,
   Gauge,
-  Target,
 } from "lucide-react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/Reveal";
