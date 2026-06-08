@@ -607,5 +607,3 @@ function FinalCtaSection() {
     </section>
   );
 }
-
-export { Target };
