@@ -235,7 +235,6 @@ function SolutionsHub() {
             <ToggleHeader
               label="Products"
               count="01"
-              descriptor="​"
               isOpen={open.products}
               onClick={() => toggle("products")}
             />
@@ -248,7 +247,6 @@ function SolutionsHub() {
             <ToggleHeader
               label="Services"
               count="02"
-              descriptor=""
               isOpen={open.services}
               onClick={() => toggle("services")}
             />
@@ -265,13 +263,11 @@ function SolutionsHub() {
 function ToggleHeader({
   label,
   count,
-  descriptor,
   isOpen,
   onClick,
 }: {
   label: string;
   count: string;
-  descriptor: string;
   isOpen: boolean;
   onClick: () => void;
 }) {
@@ -288,26 +284,12 @@ function ToggleHeader({
       )}
     >
       <div className="flex items-center gap-5 sm:gap-7">
-        <span
-          className={cn(
-            "font-display text-2xl font-bold sm:text-4xl",
-            isOpen ? "text-accent" : "text-accent",
-          )}
-        >
+        <span className="font-display text-2xl font-bold text-accent sm:text-4xl">
           {count}
         </span>
-        <div>
-          <h3 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">{label}</h3>
-          <p
-            className={cn(
-              "mt-1 text-sm font-medium uppercase tracking-[0.15em]",
-              isOpen ? "text-background/60" : "text-muted-foreground",
-            )}
-          >
-            {descriptor}
-          </p>
-        </div>
+        <h3 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">{label}</h3>
       </div>
+
       <span
         className={cn(
           "flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-colors",
