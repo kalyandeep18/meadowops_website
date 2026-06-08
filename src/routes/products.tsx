@@ -322,7 +322,7 @@ function ToggleHeader({
   );
 }
 
-function TogglePanel({ isOpen, children }: { isOpen: boolean; children: React.ReactNode }) {
+function TogglePanel({ isOpen, children }: { isOpen: boolean; children: ReactNode }) {
   const reduce = useReducedMotion();
   return (
     <AnimatePresence initial={false}>
