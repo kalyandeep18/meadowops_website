@@ -235,7 +235,7 @@ function SolutionsHub() {
             <ToggleHeader
               label="Products"
               count="01"
-              descriptor="Decide before you build"
+              descriptor="\n"
               isOpen={open.products}
               onClick={() => toggle("products")}
             />
@@ -248,7 +248,7 @@ function SolutionsHub() {
             <ToggleHeader
               label="Services"
               count="02"
-              descriptor="Diagnose, then build"
+              descriptor="\n"
               isOpen={open.services}
               onClick={() => toggle("services")}
             />
