@@ -1,53 +1,47 @@
-# Products & Services Page
+# Community Page
 
-Replace the placeholder `PageHero` in `src/routes/products.tsx` with a full, brand-consistent page built from the supplied copy. It matches the existing design language (Space Grotesk display / DM Sans body, Star White canvas, black inverted blocks, vivid orange accent, rounded cards, `Reveal`/`StaggerGroup` scroll animations) while introducing a distinctive centerpiece: two large interactive **Products** and **Services** toggles that expand to reveal their offerings.
+Replace the placeholder `PageHero` in `src/routes/community.tsx` with a full, brand-consistent page built from the supplied copy. The referenced `hero.tsx` snippet (a crypto "BASE CLUB" hero) arrived with its SVG/JSX bodies stripped out, and it ships its own navbar/logo/wallet button that would clash with the existing MeadowOps `SiteLayout` header. So rather than paste it verbatim, I'll recreate its strongest ideas — massive stacked display typography, floating glass "member" cards, a rotating circular badge, hand-drawn accent arrows, and a 3-card feature row — rebuilt in the MeadowOps design language (Space Grotesk / DM Sans, Star White canvas, black inverted blocks, vivid orange accent, `Reveal`/`StaggerGroup` motion).
 
 ## Page structure
 
 ```text
-1. Hero            — headline, subheadline, two CTAs (Book an Audit / Explore Our Solutions)
-2. The Big Idea    — "wrong starting point" narrative + the 5 unknowns + closing line
-3. Solutions Hub   — THE centerpiece: two big toggles
-                       ▸ PRODUCTS  → expands to: FYAIM card
-                       ▸ SERVICES  → expands to: AI Clarity Audit + AI System Build cards
-4. How It Works    — 3-step path (Audit → Build → Activate)
-5. Positioning     — "not a menu of random services" statement block
-6. Final CTA       — "Ready to choose the right AI move?" + two buttons
+1. Hero          — eyebrow, massive stacked headline, subheadline, "Join for Free" CTA,
+                    floating glass member cards, rotating circular badge, accent arrows
+2. What You Get  — headline + intro, then the 5 benefits as animated cards
+3. Final CTA     — "Free today. Free forever." headline + body + "Join M's AI Circle" button
 ```
 
-## The toggle centerpiece (key requirement)
+## Section 1 — Hero (the centerpiece)
 
-Section 3 is the focus. Two large, full-width toggle headers ("Products" and "Services"), each with a count badge, short descriptor, and an animated chevron. Clicking one expands a panel below it revealing the relevant offering cards. Behavior:
+- Background grid + ambient orange glow consistent with other page heroes.
+- Eyebrow pill ("Free Community" / pulsing accent dot) matching the Products/Home hero pill.
+- Massive stacked display words built from the brand idea, e.g. three lines: **JOIN  ·  M'S AI  ·  CIRCLE** rendered as oversized `text-7xl/8xl` Space Grotesk, with one line in accent orange. Word-by-word `framer-motion` entrance (respecting `useReducedMotion`).
+- Headline copy used as the accessible H1: "Join M's AI Circle. Learn how to bring AI into your business the right way." (the giant words are decorative; the full H1 sits as the readable headline so SEO/screen-readers get the real sentence).
+- Subheadline paragraph (full supplied copy).
+- Primary `CtaButton` → `SITE.bookingPath` placeholder for "Join for Free" (anchored to final CTA / booking path).
+- Decorative floating **glass member cards** (frosted `bg-card/70 backdrop-blur border` rounded pills) showing a founder avatar + name + "points/streak"-style stat, re-themed as community stats (e.g. "1,200+ founders", "Free forever"). Positioned absolutely on desktop, stacked/hidden on mobile.
+- A **rotating circular badge** ("JOIN FOR FREE • JOIN FOR FREE •") built with SVG `textPath` + slow CSS/motion rotation, in accent orange.
+- Two hand-drawn-style accent **arrows** (inline SVG, `stroke-accent` / `stroke-foreground`) pointing toward the CTA, hidden on small screens.
 
-- Built with `framer-motion` `AnimatePresence` + height/opacity animation for a smooth, premium expand/collapse (richer than the base shadcn accordion, and consistent with the rest of the page's motion).
-- Default state: **Products open** so the page never looks empty; both can be toggled independently (multi-open allowed).
-- Each toggle header uses the brand's inverted-on-hover / accent treatment so it reads as a deliberate, designed control.
+## Section 2 — What You Get
 
-**Products panel — FYAIM ("Find Your AI Model")**
-- Tagline: "For founders confused about which AI model to use."
-- Intro about models all claiming to do everything.
-- "What it helps you do" list (choose best model, compare by use case, token sizes, what each is good at, avoid wrong choices).
-- "Why it matters" line + CTA "Find the Right Model".
+- Section label + headline "Everything you need to start using AI with clarity." + intro body.
+- The 5 expectations as a `StaggerGroup` card grid with lucide icons:
+  step-by-step AI guides (`BookOpen`), simple frameworks (`LayoutGrid`), implementation resources (`Wrench`), founder-friendly learning (`GraduationCap`), ongoing support (`Users`).
+- Closing line: "No noise. No complex language. Just useful content that helps you move faster." in an inverted black emphasis strip.
 
-**Services panel — two service cards**
-- *The AI Clarity Audit* — 60-min diagnostic; "What you get" (AI Opportunity Report: current state, 3 ranked opportunities, time savings, cost savings, investment range); "Why you need it"; CTA "Book the AI Clarity Audit".
-- *The AI System Build* — design/build/test/activate + team training; "What you receive" (live system, documentation, training, 30-day support); important note that Phase 2 follows Phase 1; CTA "Start with the Audit".
+## Section 3 — Final CTA
 
-## Other sections
-
-- **Hero**: word-by-word animated headline ("Choose the right AI path. Build the right AI system."), subheadline, primary `CtaButton` ("Book an Audit") + ghost CtaButton ("Explore Our Solutions" → anchors to the Solutions Hub). Ambient accent glow, matching hero padding rhythm.
-- **The Big Idea**: large statement headline, the 5 "without knowing" unknowns as a `StaggerGroup` grid, then the "How do we build it properly?" turn and the MeadowOps closing line. Likely one inverted black block for emphasis.
-- **How It Works**: 3 numbered step cards (Audit / Build / Activate) with lucide icons, reinforcing the "audited, built, activated" model.
-- **Positioning**: centered editorial statement ("This is not a menu of random services… not a generic agency").
-- **Final CTA**: reuse the bordered rounded-card CTA styling with accent glow; primary "Book the AI Clarity Audit" + secondary "Explore FYAIM" (anchors back to Products).
+- Reuse the bordered rounded-card CTA styling with accent glow.
+- Headline "Free today. Free forever. Built for founders who want to grow smarter." + body.
+- Primary `CtaButton` "Join M's AI Circle".
 
 ## Technical details
 
-- File: `src/routes/products.tsx` — replace `PageHero` usage with the full page; keep `SiteLayout` wrapper.
-- Reuse `Reveal`, `StaggerGroup`, `StaggerItem`, `CtaButton`, and lucide-react icons (e.g. `Cpu`, `Search`, `Wrench`, `Workflow`, `ClipboardCheck`, `Rocket`, `CheckCircle2`, `ChevronDown`, `Sparkles`, `Layers`).
-- Toggle state via local `useState` (which sections are open); `AnimatePresence` for expand/collapse; respect `useReducedMotion`.
+- Edit only `src/routes/community.tsx` — drop the `PageHero` import/usage, keep the `SiteLayout` wrapper, keep/extend the existing `head()` meta (title, description, og:*, canonical) to match the new hero copy.
+- Reuse `Reveal`, `StaggerGroup`, `StaggerItem`, `CtaButton`, and `lucide-react` icons. No `motion/react` dependency needed — the project already uses `framer-motion`, so the hero animation uses that (no new packages installed).
 - Colors strictly via semantic tokens (`accent`, `foreground`, `muted-foreground`, `card`, `border`) — no hardcoded colors.
-- CTAs point to `SITE.bookingPath` (`/audit`); secondary CTAs use in-page anchors (`#solutions`, `#products`).
-- Update `head()` meta (title, description, og tags, canonical) to match the new hero copy.
+- Avatars: lightweight initial/letter circles or existing assets rather than external Unsplash URLs, to avoid network-image dependencies and keep SSR clean.
+- Rotating badge animation uses a CSS keyframe / `framer-motion` rotate that respects reduced motion.
 
-No new files, no dependencies, no backend — purely frontend/presentation work.
+No new files, no dependencies, no backend — purely frontend/presentation work scoped to the Community page.
