@@ -1,47 +1,53 @@
-# Community Page
+# About Page Redesign
 
-Replace the placeholder `PageHero` in `src/routes/community.tsx` with a full, brand-consistent page built from the supplied copy. The referenced `hero.tsx` snippet (a crypto "BASE CLUB" hero) arrived with its SVG/JSX bodies stripped out, and it ships its own navbar/logo/wallet button that would clash with the existing MeadowOps `SiteLayout` header. So rather than paste it verbatim, I'll recreate its strongest ideas — massive stacked display typography, floating glass "member" cards, a rotating circular badge, hand-drawn accent arrows, and a 3-card feature row — rebuilt in the MeadowOps design language (Space Grotesk / DM Sans, Star White canvas, black inverted blocks, vivid orange accent, `Reveal`/`StaggerGroup` motion).
+Replace the placeholder `PageHero` in `src/routes/about.tsx` with a full, brand-consistent page built from the supplied copy. To give this page a **different look** from Community (giant stacked words + floating cards) and Products (toggle hub), About will use an **editorial, numbered-section** layout: a split asymmetric hero, then numbered manifesto-style sections that alternate between light canvas and inverted black blocks.
+
+All work stays in `src/routes/about.tsx` (frontend/presentation only). Colours strictly via semantic tokens (`accent`, `foreground`, `muted-foreground`, `card`, `border`, `background`). Text uses the existing DM Sans display/sans tokens. Reuse `SiteLayout`, `Reveal`, `StaggerGroup`, `StaggerItem`, `CtaButton`, and `lucide-react` — no new files, packages, or backend.
 
 ## Page structure
 
 ```text
-1. Hero          — eyebrow, massive stacked headline, subheadline, "Join for Free" CTA,
-                    floating glass member cards, rotating circular badge, accent arrows
-2. What You Get  — headline + intro, then the 5 benefits as animated cards
-3. Final CTA     — "Free today. Free forever." headline + body + "Join M's AI Circle" button
+1. Hero            — eyebrow pill, asymmetric split: large headline left,
+                     subheadline + "Book an Audit" CTA; subtle grid + glow
+2. Who We Are      — numbered "01", "Not an agency. Not generic consulting."
+                     statement + supporting paragraphs
+3. What We Believe — numbered "02", inverted black block: "AI should create
+                     clarity, not confusion." + the 4 needs as a checklist
+4. What Makes Us   — numbered "03", "Built around outcomes." + 4 differentiator
+   Different          cards (StaggerGroup, lucide icons)
+5. Who We Serve    — numbered "04", "Built for growing businesses..." + 3
+                     audience cards (SMBs, funded startups, growth-stage)
+6. Mission / CTA   — "Our mission is simple." statement + "Book an Audit" CTA
 ```
 
-## Section 1 — Hero (the centerpiece)
+## Section details
 
-- Background grid + ambient orange glow consistent with other page heroes.
-- Eyebrow pill ("Free Community" / pulsing accent dot) matching the Products/Home hero pill.
-- Massive stacked display words built from the brand idea, e.g. three lines: **JOIN  ·  M'S AI  ·  CIRCLE** rendered as oversized `text-7xl/8xl` Space Grotesk, with one line in accent orange. Word-by-word `framer-motion` entrance (respecting `useReducedMotion`).
-- Headline copy used as the accessible H1: "Join M's AI Circle. Learn how to bring AI into your business the right way." (the giant words are decorative; the full H1 sits as the readable headline so SEO/screen-readers get the real sentence).
-- Subheadline paragraph (full supplied copy).
-- Primary `CtaButton` → `SITE.bookingPath` placeholder for "Join for Free" (anchored to final CTA / booking path).
-- Decorative floating **glass member cards** (frosted `bg-card/70 backdrop-blur border` rounded pills) showing a founder avatar + name + "points/streak"-style stat, re-themed as community stats (e.g. "1,200+ founders", "Free forever"). Positioned absolutely on desktop, stacked/hidden on mobile.
-- A **rotating circular badge** ("JOIN FOR FREE • JOIN FOR FREE •") built with SVG `textPath` + slow CSS/motion rotation, in accent orange.
-- Two hand-drawn-style accent **arrows** (inline SVG, `stroke-accent` / `stroke-foreground`) pointing toward the CTA, hidden on small screens.
+### 1 — Hero
+- Eyebrow pill ("About MeadowOps", pulsing accent dot) matching other heroes.
+- Asymmetric two-column on desktop: left column the H1 "MeadowOps helps businesses use AI the right way." (word-by-word framer-motion entrance, "the right way" in accent); right column the subheadline paragraph + `CtaButton` "Book an Audit".
+- Background grid + ambient orange glow consistent with Community/Products heroes.
 
-## Section 2 — What You Get
+### 2 — Who We Are
+- Big "01" index marker in accent, section label "Who We Are".
+- Bold statement "Not an agency. Not generic consulting. MeadowOps is different by design." then the two supporting paragraphs as muted body copy.
 
-- Section label + headline "Everything you need to start using AI with clarity." + intro body.
-- The 5 expectations as a `StaggerGroup` card grid with lucide icons:
-  step-by-step AI guides (`BookOpen`), simple frameworks (`LayoutGrid`), implementation resources (`Wrench`), founder-friendly learning (`GraduationCap`), ongoing support (`Users`).
-- Closing line: "No noise. No complex language. Just useful content that helps you move faster." in an inverted black emphasis strip.
+### 3 — What We Believe
+- Inverted `bg-foreground text-background` block for contrast/rhythm.
+- "02" marker, headline "AI should create clarity, not confusion.", intro line, then the four needs (a clear starting point / the right use case / the right system / a path that works inside their business) as an accent-checkmark list. Closing paragraph on reducing wasted budget and failed tools.
 
-## Section 3 — Final CTA
+### 4 — What Makes Us Different
+- "03" marker, headline "Built around outcomes.".
+- Four differentiator cards (`StaggerGroup` / `StaggerItem`) with lucide icons: defined set of products (`Package`), structured methodology (`Workflow`), clear audit→build→activation process (`Route`), focus on business impact (`Target`). Closing emphasis line.
 
-- Reuse the bordered rounded-card CTA styling with accent glow.
-- Headline "Free today. Free forever. Built for founders who want to grow smarter." + body.
-- Primary `CtaButton` "Join M's AI Circle".
+### 5 — Who We Serve
+- "04" marker, headline "Built for growing businesses that want to scale smarter.".
+- Three audience cards: SMBs, funded startups, growth-stage startups (lucide icons). Closing line about stopping manual processes.
+
+### 6 — Mission / Final CTA
+- Bordered rounded card with accent glow (same family as other final CTAs).
+- "Our mission is simple." + mission statement + `CtaButton` "Book an Audit" → `SITE.bookingPath`.
 
 ## Technical details
-
-- Edit only `src/routes/community.tsx` — drop the `PageHero` import/usage, keep the `SiteLayout` wrapper, keep/extend the existing `head()` meta (title, description, og:*, canonical) to match the new hero copy.
-- Reuse `Reveal`, `StaggerGroup`, `StaggerItem`, `CtaButton`, and `lucide-react` icons. No `motion/react` dependency needed — the project already uses `framer-motion`, so the hero animation uses that (no new packages installed).
-- Colors strictly via semantic tokens (`accent`, `foreground`, `muted-foreground`, `card`, `border`) — no hardcoded colors.
-- Avatars: lightweight initial/letter circles or existing assets rather than external Unsplash URLs, to avoid network-image dependencies and keep SSR clean.
-- Rotating badge animation uses a CSS keyframe / `framer-motion` rotate that respects reduced motion.
-
-No new files, no dependencies, no backend — purely frontend/presentation work scoped to the Community page.
+- Edit only `src/routes/about.tsx`: drop the `PageHero` import/usage, keep `SiteLayout`, and update `head()` meta (title, description, og:title/description/url, canonical) to match the new About hero copy.
+- Animations via `framer-motion` (already installed) respecting `useReducedMotion`; reuse `Reveal`/`StaggerGroup`/`StaggerItem`.
+- No hardcoded colours, no new dependencies, no schema/backend changes.
