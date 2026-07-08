@@ -76,15 +76,20 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-6 flex gap-3">
-              {["LinkedIn", "Instagram"].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
-                >
-                  {s}
-                </a>
-              ))}
+              <a
+                href="#"
+                className="rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.instagram.com/meadowops/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
+              >
+                Instagram
+              </a>
             </div>
           </div>
         </div>
