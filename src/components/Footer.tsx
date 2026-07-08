@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import logo from "@/assets/meadowops-logo.png.asset.json";
 
