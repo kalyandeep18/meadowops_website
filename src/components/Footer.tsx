@@ -76,7 +76,7 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-6 flex gap-3">
-              {["LinkedIn", "X", "YouTube"].map((s) => (
+              {["LinkedIn", "Instagram"].map((s) => (
                 <a
                   key={s}
                   href="#"
