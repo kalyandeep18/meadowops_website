@@ -78,16 +78,21 @@ export function Footer() {
             <div className="mt-6 flex gap-3">
               <a
                 href="#"
-                className="rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
+                onClick={(e) => e.preventDefault()}
+                className="inline-flex items-center gap-1.5 rounded-full border border-background/20 px-4 py-2 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
+                aria-label="LinkedIn (coming soon)"
               >
+                <Linkedin className="h-3.5 w-3.5" />
                 LinkedIn
               </a>
               <a
                 href="https://www.instagram.com/meadowops/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-background/20 px-3 py-1.5 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
+                className="inline-flex items-center gap-1.5 rounded-full border border-background/20 px-4 py-2 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
+                aria-label="Follow MeadowOps on Instagram"
               >
+                <Instagram className="h-3.5 w-3.5" />
                 Instagram
               </a>
             </div>
