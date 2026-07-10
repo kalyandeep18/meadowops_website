@@ -46,7 +46,7 @@ export function CtaButton({ to, href, variant = "primary", children, subtitle, c
         )}
       </span>
       {subtitle && (
-        <span className="block max-w-[260px] text-xs font-medium leading-snug opacity-80">
+        <span className="block max-w-[280px] text-xs font-semibold leading-snug text-accent-foreground/85">
           {subtitle}
         </span>
       )}
