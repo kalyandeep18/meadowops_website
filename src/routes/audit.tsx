@@ -504,9 +504,24 @@ function FinalCtaSection() {
         <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-accent-foreground/90">
           Get a clear view of what is slowing your business down and what to fix next.
         </p>
-        <div className="mt-10 flex justify-center">
-          <CtaButton to={SITE.bookingPath} variant="light" className="px-9 py-4 text-base">
-            Book Your Audit
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <CtaButton
+            to={SITE.bookingPath}
+            variant="dark"
+            subtitle="60-minute diagnostic + detailed report within 48 hours"
+            showArrow={false}
+            className="w-full text-base sm:w-auto"
+          >
+            Book Your AI Audit — ₹2,000
+          </CtaButton>
+          <CtaButton
+            to={SITE.bookingPath}
+            variant="dark"
+            subtitle="60-minute diagnostic + detailed report within 48 hours"
+            showArrow={false}
+            className="w-full text-base sm:w-auto"
+          >
+            Book Your AI Audit — $299
           </CtaButton>
         </div>
         <p className="mt-7 text-sm text-accent-foreground/80">
