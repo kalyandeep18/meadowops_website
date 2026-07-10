@@ -489,28 +489,36 @@ function WhyUsSection() {
 function FinalCtaSection() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden bg-accent py-28 text-accent-foreground sm:py-36">
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-accent-foreground/10 blur-2xl" />
+    <section className="relative overflow-hidden bg-accent py-24 text-accent-foreground sm:py-32">
+      <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-accent-foreground/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-accent-foreground/8 blur-3xl" />
+
       <motion.div
         initial={{ opacity: 0, y: reduce ? 0 : 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto max-w-4xl px-6 text-center"
+        className="relative mx-auto max-w-3xl px-6 text-center"
       >
-        <h2 className="mx-auto max-w-3xl text-4xl font-bold leading-[0.98] tracking-tight text-balance sm:text-7xl">
+        <span className="inline-flex items-center gap-2 rounded-full border border-accent-foreground/20 bg-accent-foreground/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.15em]">
+          Start with clarity
+        </span>
+
+        <h2 className="mx-auto mt-6 max-w-2xl text-4xl font-bold leading-[1.02] tracking-tight text-balance sm:text-5xl lg:text-6xl">
           Stop guessing what to automate first.
         </h2>
-        <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-accent-foreground/90">
+
+        <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-accent-foreground/90">
           Get a clear view of what is slowing your business down and what to fix next.
         </p>
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+
+        <div className="mt-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           <CtaButton
             to={SITE.bookingPath}
             variant="dark"
             subtitle="60-minute diagnostic + detailed report within 48 hours"
             showArrow={false}
-            className="w-full text-base sm:w-auto"
+            className="w-full text-base sm:text-lg"
           >
             Book Your AI Audit — ₹2,000
           </CtaButton>
@@ -519,12 +527,13 @@ function FinalCtaSection() {
             variant="dark"
             subtitle="60-minute diagnostic + detailed report within 48 hours"
             showArrow={false}
-            className="w-full text-base sm:w-auto"
+            className="w-full text-base sm:text-lg"
           >
             Book Your AI Audit — $299
           </CtaButton>
         </div>
-        <p className="mt-7 text-sm text-accent-foreground/80">
+
+        <p className="mt-8 text-sm font-medium text-accent-foreground/80">
           Start with the right problem. Build the right system. Scale with confidence.
         </p>
       </motion.div>
