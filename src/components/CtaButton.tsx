@@ -17,11 +17,11 @@ type Props = {
 };
 
 const base =
-  "group relative items-center justify-center rounded-full font-semibold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+  "group relative items-center justify-center rounded-full font-bold tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const layouts = {
   default: "inline-flex gap-2 px-7 py-3.5 text-sm",
-  stacked: "flex flex-col gap-1 px-8 py-5 text-center",
+  stacked: "flex flex-col gap-1.5 px-8 py-5 text-center",
 };
 
 const variants: Record<Variant, string> = {
@@ -32,7 +32,7 @@ const variants: Record<Variant, string> = {
   ghost:
     "border border-foreground/15 bg-transparent text-foreground hover:border-foreground/40 hover:bg-foreground/[0.03]",
   dark:
-    "bg-foreground text-accent-foreground shadow-[0_8px_30px_-8px_color-mix(in_oklab,var(--color-foreground)_25%,transparent)] hover:bg-foreground/90 hover:shadow-[0_14px_40px_-8px_color-mix(in_oklab,var(--color-foreground)_30%,transparent)] hover:-translate-y-0.5",
+    "bg-foreground text-accent-foreground shadow-[0_10px_35px_-10px_color-mix(in_oklab,var(--color-foreground)_35%,transparent)] hover:bg-foreground/92 hover:shadow-[0_18px_50px_-12px_color-mix(in_oklab,var(--color-foreground)_45%,transparent)] hover:-translate-y-1",
 };
 
 export function CtaButton({ to, href, variant = "primary", children, subtitle, className, showArrow = true }: Props) {
