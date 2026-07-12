@@ -516,20 +516,23 @@ function FinalCtaSection() {
           <CtaButton
             to={SITE.bookingPath}
             variant="dark"
-            subtitle="60-minute diagnostic + detailed report within 48 hours"
+            eyebrow="FOR INDIA"
+            price="₹2,000"
             showArrow={false}
             className="w-full text-base sm:text-lg"
           >
-            Book Your AI Audit — ₹2,000
+            Book Your AI Audit
           </CtaButton>
           <CtaButton
             to={SITE.bookingPath}
             variant="dark"
-            subtitle="60-minute diagnostic + detailed report within 48 hours"
+            eyebrow="FOR INTERNATIONAL"
+            note="(US, UK, Europe, Australia, etc.,)"
+            price="$299"
             showArrow={false}
             className="w-full text-base sm:text-lg"
           >
-            Book Your AI Audit — $299
+            Book Your Audit
           </CtaButton>
         </div>
 
