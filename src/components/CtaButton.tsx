@@ -74,7 +74,7 @@ export function CtaButton({
         )}
       </span>
       {price && (
-        <span className="block w-full text-center text-2xl font-bold leading-none text-accent-foreground">
+        <span className="block w-full text-center text-2xl font-bold leading-none whitespace-pre-wrap text-accent-foreground">
           {price}
         </span>
       )}
