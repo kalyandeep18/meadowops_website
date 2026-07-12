@@ -517,7 +517,6 @@ function FinalCtaSection() {
             to={SITE.bookingPath}
             variant="dark"
             eyebrow="FOR INDIA"
-            price="\n"
             subtitle="60-minute diagnostic + detailed report within 48 hours"
             showArrow={false}
             className="w-full text-base sm:text-lg"
@@ -529,7 +528,6 @@ function FinalCtaSection() {
             variant="dark"
             eyebrow="FOR INTERNATIONAL"
             note="(US, UK, Europe, Australia, etc.,)"
-            price="\n"
             subtitle="60-minute diagnostic + detailed report within 48 hours"
             showArrow={false}
             className="w-full text-base sm:text-lg"
