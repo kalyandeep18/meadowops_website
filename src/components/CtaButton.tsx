@@ -24,7 +24,7 @@ const base =
 
 const layouts = {
   default: "inline-flex gap-2 px-7 py-3.5 text-sm",
-  stacked: "flex flex-col gap-1 px-8 py-5 text-center",
+  stacked: "flex h-full flex-col items-center justify-center gap-1 px-8 py-5 text-center",
 };
 
 const variants: Record<Variant, string> = {
@@ -55,7 +55,7 @@ export function CtaButton({
   const inner = (
     <motion.span
       whileTap={{ scale: 0.97 }}
-      className={cn(base, layout, variants[variant], className)}
+      className={cn(base, "h-full w-full", layout, variants[variant], className)}
     >
       {eyebrow && (
         <span className="block w-full text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-foreground/80">
@@ -88,13 +88,13 @@ export function CtaButton({
 
   if (href) {
     return (
-      <a href={href} className="inline-block">
+      <a href={href} className="block h-full w-full">
         {inner}
       </a>
     );
   }
   return (
-    <Link to={to ?? "/"} className="inline-block">
+    <Link to={to ?? "/"} className="block h-full w-full">
       {inner}
     </Link>
   );
