@@ -58,28 +58,28 @@ export function CtaButton({
       className={cn(base, layout, variants[variant], className)}
     >
       {eyebrow && (
-        <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-foreground/80">
+        <span className="block w-full text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-accent-foreground/80">
           {eyebrow}
         </span>
       )}
       {note && (
-        <span className="max-w-[260px] text-xs font-medium leading-snug text-accent-foreground/70">
+        <span className="block w-full text-center text-xs font-medium leading-snug text-accent-foreground/70">
           {note}
         </span>
       )}
-      <span className="flex items-center gap-2">
+      <span className="flex items-center justify-center gap-2">
         {children}
         {showArrow && !hasStack && (
           <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         )}
       </span>
       {price && (
-        <span className="text-2xl font-bold leading-none text-accent-foreground">
+        <span className="block w-full text-center text-2xl font-bold leading-none text-accent-foreground">
           {price}
         </span>
       )}
       {subtitle && (
-        <span className="block max-w-[280px] text-xs font-semibold leading-snug text-accent-foreground/85">
+        <span className="block w-full text-center text-xs font-semibold leading-snug text-accent-foreground/85">
           {subtitle}
         </span>
       )}
