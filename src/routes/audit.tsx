@@ -514,7 +514,7 @@ function FinalCtaSection() {
 
         <div className="mt-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           <CtaButton
-            to={SITE.bookingPath}
+            href="https://whop.com/checkout/plan_NmYawSbjYoDsU"
             variant="dark"
             eyebrow="FOR INDIA"
             price={`\n`}
@@ -525,7 +525,7 @@ function FinalCtaSection() {
             Book Your AI Audit
           </CtaButton>
           <CtaButton
-            to={SITE.bookingPath}
+            href="https://whop.com/checkout/plan_NmYawSbjYoDsU"
             variant="dark"
             eyebrow="FOR INTERNATIONAL"
             note="(US, UK, Europe, Australia, etc.,)"
