@@ -514,7 +514,7 @@ function FinalCtaSection() {
 
         <div className="mt-10 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           <CtaButton
-            href="https://whop.com/checkout/plan_AkSljzUtYmw1V"
+            href="https://whop.com/checkout/plan_NmYawSbjYoDsU"
             variant="dark"
             eyebrow="FOR INDIA"
             price={`\n`}
