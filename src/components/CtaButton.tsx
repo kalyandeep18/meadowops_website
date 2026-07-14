@@ -98,7 +98,7 @@ export function CtaButton({
     );
   }
   return (
-    <Link to={to ?? "/"} className="block h-full w-full">
+    <Link to={to ?? "/"} hash={resolvedHash} className="block h-full w-full">
       {inner}
     </Link>
   );
