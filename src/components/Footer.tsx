@@ -29,6 +29,7 @@ export function Footer() {
             </p>
             <Link
               to={SITE.bookingPath}
+              hash="cta"
               className="group mt-7 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-transform hover:-translate-y-0.5"
             >
               Book an Audit
