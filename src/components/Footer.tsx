@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-2.5" aria-label="MeadowOps home">
               <img
@@ -96,6 +96,19 @@ export function Footer() {
                 Instagram
               </a>
             </div>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-background/40">
+              Support
+            </h4>
+            <ul className="mt-5 space-y-3 text-sm text-background/70">
+              <li>
+                <a href="mailto:support@meadowops.tech" className="transition-colors hover:text-background">
+                  support@meadowops.tech
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
