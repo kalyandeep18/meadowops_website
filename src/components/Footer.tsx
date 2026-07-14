@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-foreground text-background">
       <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" className="flex items-center gap-2.5" aria-label="MeadowOps home">
               <img
