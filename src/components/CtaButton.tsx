@@ -2,12 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/lib/site";
 import type { ReactNode } from "react";
 
 type Variant = "primary" | "ghost" | "light" | "dark";
 
 type Props = {
   to?: string;
+  hash?: string;
   href?: string;
   variant?: Variant;
   children: ReactNode;
@@ -40,6 +42,7 @@ const variants: Record<Variant, string> = {
 
 export function CtaButton({
   to,
+  hash,
   href,
   variant = "primary",
   children,
@@ -50,6 +53,7 @@ export function CtaButton({
   className,
   showArrow = true,
 }: Props) {
+  const resolvedHash = hash ?? (to === SITE.bookingPath ? "cta" : undefined);
   const hasStack = eyebrow || note || price || subtitle;
   const layout = hasStack ? layouts.stacked : layouts.default;
   const inner = (
@@ -94,7 +98,7 @@ export function CtaButton({
     );
   }
   return (
-    <Link to={to ?? "/"} className="block h-full w-full">
+    <Link to={to ?? "/"} hash={resolvedHash} className="block h-full w-full">
       {inner}
     </Link>
   );
