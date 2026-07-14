@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Instagram, Linkedin } from "lucide-react";
 import { NAV_LINKS, SITE } from "@/lib/site";
-import logo from "@/assets/meadowops-logo.png.asset.json";
+import logo from "@/assets/meadowops-logo.png";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -12,7 +12,7 @@ export function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-2.5" aria-label="MeadowOps home">
               <img
-                src={logo.url}
+                src={logo}
                 alt="MeadowOps"
                 className="h-9 w-9 object-contain invert"
                 width={36}
@@ -61,8 +61,8 @@ export function Footer() {
             </h4>
             <ul className="mt-5 space-y-3 text-sm text-background/70">
               <li>
-                <a href="mailto:hello@meadowops.com" className="transition-colors hover:text-background">
-                  hello@meadowops.com
+                <a href="mailto:hello@meadowops.tech" className="transition-colors hover:text-background">
+                  hello@meadowops.tech
                 </a>
               </li>
               <li>
@@ -78,10 +78,11 @@ export function Footer() {
             </ul>
             <div className="mt-6 flex gap-3">
               <a
-                href="#"
-                onClick={(e) => e.preventDefault()}
+                href="https://www.linkedin.com/company/meadowops/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full border border-background/20 px-4 py-2 text-xs text-background/60 transition-colors hover:border-background/50 hover:text-background"
-                aria-label="LinkedIn (coming soon)"
+                aria-label="Follow MeadowOps on LinkedIn"
               >
                 <Linkedin className="h-3.5 w-3.5" />
                 LinkedIn

@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NAV_LINKS, SITE } from "@/lib/site";
 import { CtaButton } from "./CtaButton";
-import logo from "@/assets/meadowops-logo.png.asset.json";
+import logo from "@/assets/meadowops-logo.png";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -41,7 +41,7 @@ export function Header() {
         )}
       >
         <Link to="/" className="flex items-center gap-2.5" aria-label="MeadowOps home">
-          <img src={logo.url} alt="MeadowOps" className="h-8 w-8 object-contain" width={32} height={32} />
+          <img src={logo} alt="MeadowOps" className="h-8 w-8 object-contain" width={32} height={32} />
           <span className="text-lg font-bold tracking-tight text-foreground">
             Meadow<span className="text-accent">Ops</span>
           </span>

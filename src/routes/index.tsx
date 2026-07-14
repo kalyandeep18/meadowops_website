@@ -26,17 +26,17 @@ import { GoogleGeminiEffect } from "@/components/ui/google-gemini-effect";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MeadowOps — AI Systems That Actually Do The Work" },
+      { title: "MeadowOps | AI Systems That 10x Your Operations" },
       {
         name: "description",
         content:
-          "MeadowOps helps SMBs and growth-stage startups replace manual operations with AI systems that are audited, built, and activated for real business results.",
+          "Implement AI systems that actually work. Audit, build, and activate. Get clarity on which AI system will save you the most time and money. Start with our AI Audit — tailored for startups and SMBs.",
       },
-      { property: "og:title", content: "MeadowOps — AI Systems That Actually Do The Work" },
+      { property: "og:title", content: "MeadowOps | AI Systems That 10x Your Operations" },
       {
         property: "og:description",
         content:
-          "Replace repetitive operations, cut wasted effort, and scale faster with AI systems built for real business results.",
+          "Implement AI systems that actually work. Audit, build, and activate. Get clarity on which AI system will save you the most time and money. Start with our AI Audit — tailored for startups and SMBs.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },

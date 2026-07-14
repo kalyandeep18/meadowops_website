@@ -11,6 +11,8 @@ type Props = {
   to?: string;
   hash?: string;
   href?: string;
+  target?: string;
+  rel?: string;
   variant?: Variant;
   children: ReactNode;
   eyebrow?: string;
@@ -44,6 +46,8 @@ export function CtaButton({
   to,
   hash,
   href,
+  target,
+  rel,
   variant = "primary",
   children,
   eyebrow,
@@ -92,7 +96,7 @@ export function CtaButton({
 
   if (href) {
     return (
-      <a href={href} className="block h-full w-full">
+      <a href={href} target={target} rel={rel} className="block h-full w-full">
         {inner}
       </a>
     );

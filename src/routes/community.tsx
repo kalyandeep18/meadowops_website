@@ -181,7 +181,9 @@ function CommunityHero() {
           transition={{ delay: 0.85, duration: 0.7 }}
           className="mt-9 flex justify-center"
         >
-          <CtaButton href="#join">Join for Free</CtaButton>
+          <CtaButton href="https://chat.whatsapp.com/K5aIRmnORzdIIsNy8mYg3I" target="_blank" rel="noopener noreferrer">
+            Join for Free
+          </CtaButton>
         </motion.div>
       </div>
     </section>
@@ -232,9 +234,9 @@ function RotatingBadge() {
             d="M50,50 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0"
           />
         </defs>
-        <text className="fill-foreground text-[9px] font-semibold uppercase tracking-[0.18em]">
-          <textPath href="#badge-circle" startOffset="0">
-            Join for free • Join for free •
+        <text className="fill-foreground text-[7.7px] font-semibold uppercase tracking-[0.15em]">
+          <textPath href="#badge-circle" startOffset="0" textLength="228" lengthAdjust="spacing">
+            Join for free • Join for free • Join for free • 
           </textPath>
         </text>
       </svg>
@@ -337,7 +339,7 @@ function FinalCtaSection() {
                 apply AI, this is your place.
               </p>
               <div className="mt-9 flex justify-center">
-                <CtaButton to={SITE.bookingPath}>
+                <CtaButton href="https://chat.whatsapp.com/K5aIRmnORzdIIsNy8mYg3I" target="_blank" rel="noopener noreferrer">
                   Join M's AI Circle
                 </CtaButton>
               </div>

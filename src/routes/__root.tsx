@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -37,9 +36,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -77,21 +73,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "MeadowOps — AI Systems That Actually Do The Work" },
+      { title: "MeadowOps | AI Systems That 10x Your Operations" },
       {
         name: "description",
         content:
-          "MeadowOps helps SMBs and growth-stage startups replace manual operations with AI systems that are audited, built, and activated for real results.",
+          "Implement AI systems that actually work. Audit, build, and activate. Get clarity on which AI system will save you the most time and money. Start with our AI Audit — tailored for startups and SMBs.",
       },
       { name: "author", content: "MeadowOps" },
       { property: "og:site_name", content: "MeadowOps" },
-      { property: "og:title", content: "MeadowOps — AI Systems That Actually Do The Work" },
-      { property: "og:description", content: "Audited, built, and activated AI systems for real business results." },
+      { property: "og:title", content: "MeadowOps | AI Systems That 10x Your Operations" },
+      {
+        property: "og:description",
+        content:
+          "Implement AI systems that actually work. Audit, build, and activate. Get clarity on which AI system will save you the most time and money. Start with our AI Audit — tailored for startups and SMBs.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@MeadowOps" },
     ],
     links: [
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

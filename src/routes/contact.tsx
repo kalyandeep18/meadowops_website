@@ -30,7 +30,7 @@ function ContactPage() {
         label="Contact Us"
         title="Let's find your biggest"
         highlight="bottleneck together."
-        description="Reach out at hello@meadowops.com or book an audit. We'll show you where AI can create the biggest impact inside your business — first."
+        description="Reach out at hello@meadowops.tech or book an audit. We'll show you where AI can create the biggest impact inside your business — first."
       />
     </SiteLayout>
   );
