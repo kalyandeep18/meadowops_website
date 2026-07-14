@@ -9,6 +9,7 @@ type Variant = "primary" | "ghost" | "light" | "dark";
 
 type Props = {
   to?: string;
+  hash?: string;
   href?: string;
   variant?: Variant;
   children: ReactNode;
