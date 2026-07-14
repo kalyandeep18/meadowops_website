@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/lib/site";
 import type { ReactNode } from "react";
 
 type Variant = "primary" | "ghost" | "light" | "dark";
