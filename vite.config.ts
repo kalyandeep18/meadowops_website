@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => ({
     viteReact(),
     command === "build" &&
       nitro({
-        preset: "cloudflare-module",
+        preset: process.env.NETLIFY ? "netlify" : "cloudflare-module",
       }),
   ].filter(Boolean),
   resolve: {
