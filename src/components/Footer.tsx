@@ -97,6 +97,19 @@ export function Footer() {
               </a>
             </div>
           </div>
+
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-background/40">
+              Support
+            </h4>
+            <ul className="mt-5 space-y-3 text-sm text-background/70">
+              <li>
+                <a href="mailto:support@meadowops.tech" className="transition-colors hover:text-background">
+                  support@meadowops.tech
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-background/10 pt-7 text-xs text-background/45 sm:flex-row sm:items-center">
