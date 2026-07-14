@@ -489,7 +489,7 @@ function WhyUsSection() {
 function FinalCtaSection() {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden bg-accent py-24 text-accent-foreground sm:py-32">
+    <section id="cta" className="relative scroll-mt-24 overflow-hidden bg-accent py-24 text-accent-foreground sm:py-32">
       <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-accent-foreground/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-accent-foreground/8 blur-3xl" />
 
