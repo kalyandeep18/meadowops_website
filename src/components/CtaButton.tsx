@@ -42,6 +42,7 @@ const variants: Record<Variant, string> = {
 
 export function CtaButton({
   to,
+  hash,
   href,
   variant = "primary",
   children,
@@ -52,6 +53,7 @@ export function CtaButton({
   className,
   showArrow = true,
 }: Props) {
+  const resolvedHash = hash ?? (to === SITE.bookingPath ? "cta" : undefined);
   const hasStack = eyebrow || note || price || subtitle;
   const layout = hasStack ? layouts.stacked : layouts.default;
   const inner = (
